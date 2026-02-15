@@ -1,9 +1,122 @@
-# **Basketball Game Predictor — 2025 Wharton High School Data Science Competition**
-*A machine learning model that predicts NCAA women’s basketball game outcomes (final predictions provided in repository) and an algorithm that ranks divisions using an Elo rating system, both created using Google Colab*
-## Competition Background
- This repo includes all the work my teammates and I did for the 2025 Wharton High School Data Science Competition, where we analyzed data from over 5,300 NCAA Women’s Division I basketball games. The competition asked us to rank teams within each region and predict who would win in hypothetical East Region matchups. In this repository, you’ll find our solutions for both Task A (ranking teams) and Task B (predicting game outcomes), as well as the final predictions we submitted.
+# NCAA Women’s Basketball Game Predictor — 2025 Wharton High School Data Science Competition
 
-## Project Details
- For this project, I built an Elo rating system that updated following each game, applying a system of rewards and penalties based on how well teams actually performed compared to expectations. We also used the Task B's Elo model in Task A, to produce the team rankings at the end of the season for each division. For predicting individual game outcomes, I chose to use multiple linear regression. Looking back, I understand this wasn’t the best modeling choice for this problem, but it was what I ended up implementing for this particular project and it helped me learn a lot about handling sports data and building models from scratch.
-	
- One challenge we ran into was that the regression model sometimes produced extremely high or low win probabilities that didn’t make sense in practice. To address this, we iterated through the prediction DataFrame after generating the initial results and adjusted the expectation probability function to bring them closer to a realistic range. Overall, working on this project provided me with significant insight into feature engineering, building models like Elo systems, and collaborating as part of a team on a large data science project. Ultimately, this competition sparked my interest in Artificial Intelligence, and I plan to continue exploring AI and machine learning to better my understanding and, most importantly, create positive impacts on society.
+A machine learning project that predicts NCAA Women’s Division I basketball game outcomes and ranks teams using a custom Elo rating system. Developed in Python using Google Colab as part of the 2025 Wharton High School Data Science Competition.
+
+
+## Overview
+
+This project analyzes over 5,300 NCAA Women’s Division I basketball games to achieve two competition objectives:
+
+- **Task A:** Rank teams within each region based on performance  
+- **Task B:** Predict outcomes of hypothetical East Region matchups  
+
+The repository includes the full data science pipeline:
+
+- Data preprocessing and cleaning  
+- Feature engineering for advanced statistics  
+- Implementation of a custom Elo rating system  
+- Predictive modeling using polynomial regression  
+- Generation of final team rankings and predicted game outcomes  
+
+
+## Dataset
+
+The dataset provided for the competition contains:
+
+- 5,300+ historical NCAA Division I women’s basketball games  
+- Game outcomes, team identifiers, and regional division information  
+- Team performance statistics, including field goals, free throws, assists, blocks, steals, turnovers, and rebounds  
+
+This data was used to compute team strengths via Elo ratings and to generate predictive models for game outcomes.
+
+
+## Methodology
+
+### 1. Custom Elo Rating System
+
+- Each team starts with a base Elo rating of 1500  
+- Expected win probabilities are calculated for every matchup  
+- Elo ratings are updated after each game based on:
+
+  - Actual vs. expected outcomes  
+  - Performance adjustments from advanced stats such as assists, blocks, steals, turnovers, and rebounds  
+  - Shooting efficiency (2-point, 3-point, and free throws)  
+
+- Elo ratings were used for:
+
+  - Ranking teams within each region (Task A)  
+  - Input features for predictive modeling (Task B)
+
+### 2. Game Outcome Prediction
+
+- Multiple linear regression with polynomial features was applied  
+- Model features include:
+
+  - Elo-derived expected win probability  
+  - Game-specific factors: rest days, travel distance, home/away status, and opponent strength  
+  - Adjustments for non-D1 or incomplete teams  
+
+- Output: predicted win probabilities for each matchup, refined using a sigmoid transformation to represent probabilities between 0 and 1  
+
+
+## Results
+
+- **Team Rankings:**  
+  Final Elo-based rankings were produced for each region, capturing team strength trends throughout the season.  
+
+- **Win Probability Predictions:**  
+  Predicted win probabilities were generated for all hypothetical East Region matchups.  
+
+- The models successfully balanced historical performance and advanced stats to produce realistic predictions for competition evaluation.  
+
+
+## Requirements
+
+- Python 3.9+  
+- Key libraries:
+
+```bash
+pip install pandas numpy scikit-learn matplotlib
+```
+
+# Basketball Game Predictor — Usage & Skills
+
+This project was developed and executed in **Google Colab**.
+
+## Usage
+
+1. **Clone the repository:**
+
+```bash
+git clone <repository-url>
+cd <repository-folder>
+```
+2. Run the provided Jupyter notebooks in Colab to:
+- Preprocess and clean the dataset
+- Compute Elo ratings
+- Train and evaluate predictive models
+- Generate predicted win probabilities
+
+3. For querying a team’s final Elo rating:
+```bash
+from elo_module import get_team_elo
+print(get_team_elo("nc_state_wolfpack"))
+```
+
+## Skills Demonstrated
+- Machine learning and predictive modeling
+- Advanced feature engineering and data preprocessing
+- Custom Elo rating system implementation
+- Sports analytics and probability modeling
+- Data analysis with pandas and NumPy
+- Model development with scikit-learn
+- Collaborative data science project development
+
+## Competition Context
+
+Developed as part of the 2025 Wharton High School Data Science Competition, focused on NCAA Women’s Division I basketball analytics.
+
+## License
+
+This repository is released under the MIT License.
+Competition datasets are subject to their original terms of use.
