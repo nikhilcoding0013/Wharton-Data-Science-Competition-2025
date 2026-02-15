@@ -1,5 +1,5 @@
 # **Basketball Game Predictor — 2025 Wharton High School Data Science Competition**
-*A machine learning model that predicts NCAA women’s basketball game outcomes (final predictions provided in repository) and an algorithm that ranks divisions using an Elo rating system, both created using Google Collaboratory*
+*A machine learning model that predicts NCAA women’s basketball game outcomes (final predictions provided in repository) and an algorithm that ranks divisions using an Elo rating system, both created using Google Colab*
 ## Competition Background
  This repo includes all the work my teammates and I did for the 2025 Wharton High School Data Science Competition, where we analyzed data from over 5,300 NCAA Women’s Division I basketball games. The competition asked us to rank teams within each region and predict who would win in hypothetical East Region matchups. In this repository, you’ll find our solutions for both Task A (ranking teams) and Task B (predicting game outcomes), as well as the final predictions we submitted.
 
