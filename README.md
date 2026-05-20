@@ -103,15 +103,6 @@ from elo_module import get_team_elo
 print(get_team_elo("nc_state_wolfpack"))
 ```
 
-## Skills Demonstrated
-- Machine learning and predictive modeling
-- Advanced feature engineering and data preprocessing
-- Custom Elo rating system implementation
-- Sports analytics and probability modeling
-- Data analysis with pandas and NumPy
-- Model development with scikit-learn
-- Collaborative data science project development
-
 ## Competition Context
 
 Developed as part of the 2025 Wharton High School Data Science Competition, focused on NCAA Women’s Division I basketball analytics.
